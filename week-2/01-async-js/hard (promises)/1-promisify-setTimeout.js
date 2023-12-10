@@ -3,6 +3,19 @@
 */
 
 function wait(n) {
+  let promise = new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      resolve("promise resolved");
+      // rejected("promise rejected")
+    }, n);
+  });
+  return promise;
 }
 
-module.exports = wait;
+wait(1000)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
